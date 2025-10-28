@@ -1,4 +1,9 @@
 @import 'tailwindcss';
+@import "flowbite/src/themes/default";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
@@ -23,4 +28,5 @@
   custom-property: --ph-url; /* use the kebab-case alias to avoid auto-format by stylelint / prettier */
   default-weight: regular;
 }
+
 

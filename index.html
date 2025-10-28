@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Simple Tailwind Starter</title>
+    <link href="/dist/output.css" rel="stylesheet">
+    <title>Login</title>
 
     <link
       rel="stylesheet"
@@ -45,22 +46,77 @@ magnifying
  
     <!-- right side  -->
     <div class="w-2/5">
-      <div class="slideshow-container">
+      <!-- <div class="slideshow-container">
         <img class="mySlides fade" src=".\images\loginCarousel\1.jpg" alt="Image 1">
         <img class="mySlides fade" src=".\images\loginCarousel\2.jpg" alt="Image 2">
         <img class="mySlides fade h-full" src=".\images\loginCarousel\3.jpg" alt="Image 3">
         <img class="mySlides fade" src=".\images\loginCarousel\4.jpg" alt="Image 4">
         <img class="mySlides fade" src=".\images\loginCarousel\5.jpg" alt="Image 5">
+      </div> -->
+
+      <div id="image-carousel" class="relative object-contain h-screen w-full max-w-2xl mx-auto overflow-hidden shadow-xl h-80">
+    
+          <div class="carousel-inner relative w-full h-full">
+
+              <div class="carousel-item absolute w-full h-full transition-opacity duration-1000 ease-in-out" data-slide="0">
+                  <img src=".\images\loginCarousel\1.jpg" alt="Slide 1" class="w-full h-full ">
+              </div>
+              
+              <div class="carousel-item absolute w-full h-full transition-opacity duration-1000 ease-in-out opacity-0" data-slide="1">
+                  <img src=".\images\loginCarousel\2.jpg" alt="Slide 2" class="w-full h-full ">
+              </div>
+
+              <div class="carousel-item absolute w-full h-full transition-opacity duration-1000 ease-in-out opacity-0" data-slide="2">
+                  <img src=".\images\loginCarousel\3.jpg" alt="Slide 3" class="w-full h-full ">
+              </div>
+
+          </div>
       </div>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const carousel = document.getElementById('image-carousel');
+            const slides = carousel.querySelectorAll('.carousel-item');
+            let currentSlide = 0;
+            const slideInterval = 5000; // Change image every 5000ms (5 seconds)
+            
+            // --- Core Functions ---
 
+            /** Shows the slide at the given index and hides all others. */
+            function showSlide(index) {
+                // Remove 'opacity-100' and add 'opacity-0' to all slides
+                slides.forEach((slide) => {
+                    slide.classList.remove('opacity-100');
+                    slide.classList.add('opacity-0');
+                });
 
+                // Add 'opacity-100' and remove 'opacity-0' from the active slide
+                slides[index].classList.remove('opacity-0');
+                slides[index].classList.add('opacity-100');
+                currentSlide = index;
+            }
 
+            /** Moves to the next slide, cycling back to the first one if necessary. */
+            function nextSlide() {
+                // Calculate the index of the next slide (using modulo for cycling)
+                let next = (currentSlide + 1) % slides.length; 
+                showSlide(next);
+            }
 
+            // --- Initialization and Timer ---
 
-
-
-
+            // 1. Ensure the first slide is visible on load
+            showSlide(currentSlide); 
+            
+            // 2. Set up the automatic sliding timer
+            setInterval(nextSlide, slideInterval);
+        });
+      </script>
+    
+    <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
   </body>
+
+  
+
 </html>

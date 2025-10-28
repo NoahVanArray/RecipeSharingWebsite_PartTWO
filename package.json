@@ -12,5 +12,8 @@
     "phosphor-icons-tailwindcss": "^1.2.2",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.16"
+  },
+  "dependencies": {
+    "flowbite": "^3.1.2"
   }
 }
