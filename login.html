@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="/dist/output.css" rel="stylesheet">
+    <title>Login</title>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/duotone/style.css"
+    />
+  </head>
+
+  <body class="flex">
+
+    <div id="screen-wrapper" class="relative w-full h-screen overflow-hidden">
+
+        <div id="forms-static" class="flex w-full h-full">
+    
+            <div id="login-form-content" class="w-[40%] p-8 flex flex-col justify-center items-center bg-white">
+                <div class="w-100% -mt-9 flex flex-col items-center justify-center">
+                  <div class="h-10 w-10 bg-[#111827] rounded-full shadow-2xl transition duration-500 hover:scale-105">
+                    <center>
+                      <svg class="flex items-center justify-center self-center h-7 w-7 text-white mt-[5px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+                        <rect width="256" height="256" fill="none"/><line x1="96" y1="160" x2="88" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="160" y1="160" x2="168" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="128" y1="160" x2="128" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M173.65,65.12A48,48,0,1,1,184,160H72A48,48,0,1,1,82.35,65.12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M80,80a48,48,0,0,1,96,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M200,157.27V208a8,8,0,0,1-8,8H64a8,8,0,0,1-8-8V157.27" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                      </svg>
+                    </center>
+                  </div>
+                    
+                  <p class="mt-4 mb-2">Create Your Account</p>
+                  <p class="text-[#717182] text-sm">Join RecipeShare and start cooking</p>
+                  
+                  <form class="flex flex-col items-center">
+                    <div class="flex flex-col justify-start mt-5 mb-3">
+                      <p class="text-sm mb-[3px]">Full Name</p>
+                      <input
+                        type="text"
+                        class="placeholder-[#717182] text-[#717182] text-xs border rounded p-2 w-70 bg-[#f3f3f5]"
+                        placeholder="Enter your full name"
+                        required
+                      />
+                    </div>
+                    <div class="flex flex-col justify-start">
+                      <p class="text-sm mb-[3px]">Email</p>
+                      <input
+                        type="email"
+                        class="placeholder-[#717182] text-[#717182] text-xs border rounded p-2 w-70 bg-[#f3f3f5]"
+                        placeholder="Enter your email"
+                        required
+                      />
+                    </div>
+                    <div class="flex flex-col justify-start mt-3 mb-3">
+                      <p class="text-sm ">Password</p>
+                      <input
+                        type="password"
+                        class="placeholder-[#717182] text-[#717182] text-xs border rounded p-2 w-70 bg-[#f3f3f5]"
+                        placeholder="Enter your password"
+                        required
+                      />
+                    </div>
+                    <div class="flex flex-col justify-start mb-3">
+                      <p class="text-sm mb-[3px]">Confirm Password</p>
+                      <input
+                        type="password"
+                        class="placeholder-[#717182] text-[#717182] text-xs border rounded p-2 w-70 bg-[#f3f3f5]"
+                        placeholder="Re-enter your password"
+                        required
+                      />
+                    </div>
+
+                    <div class="flex justify-center w-full mt-3">
+                        <input checked="" type="checkbox" class="accent-gray-900">  
+                        <label class="ml-2 text-xs text-[#717182]">I agree to the <a class="text-[#111827] cursor-pointer" id="terms-of-service-link">Terms of Service</a> and <a class="text-[#111827] cursor-pointer" id="privacy-policy-link">Privacy Policy</a></label>  
+                    </div>
+                    
+                    <a 
+                        href="foodMenuPage.html" 
+                        style="text-decoration:none !important;" 
+                        class="bg-[#111827] text-center text-white rounded w-full p-2 mt-4 cursor-pointer">
+                        Login
+                    </a>
+
+                    <p class="mt-5 text-sm">Already have an account? Login <a id="to-login-link" class="text-[#111827] underline cursor-pointer">here</a></p>
+                  </form>
+                </div>
+            </div>
+            
+            <div class="w-[20%]"></div>
+            
+            <div id="register-form-content" class="w-[40%] p-8 flex flex-col justify-center items-center bg-white">
+                <div class="w-100% -mt-9 flex flex-col items-center justify-center">
+                  <div class="h-10 w-10 bg-[#111827] rounded-full shadow-2xl transition duration-500 hover:scale-105">
+                    <center>
+                      <svg class="flex items-center justify-center self-center h-7 w-7 text-white mt-[5px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+                        <rect width="256" height="256" fill="none"/><line x1="96" y1="160" x2="88" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="160" y1="160" x2="168" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="128" y1="160" x2="128" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M173.65,65.12A48,48,0,1,1,184,160H72A48,48,0,1,1,82.35,65.12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M80,80a48,48,0,0,1,96,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M200,157.27V208a8,8,0,0,1-8,8H64a8,8,0,0,1-8-8V157.27" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                      </svg>
+                    </center>
+                  </div>
+                    
+                  <p class="mt-4 mb-2">Welcome!</p>
+                  <p class="text-[#717182] text-sm">Log in to your RecipeShare account</p>
+                  
+                  <form class="flex flex-col items-center">
+                    <div class="flex flex-col justify-start mt-5 mb-3">
+                      <p class="text-sm mb-[3px]">Email</p>
+                      <input
+                        type="text"
+                        class="placeholder-[#717182] text-[#717182] text-xs border rounded p-2 w-70 bg-[#f3f3f5]"
+                        placeholder="Enter your email"
+                      />
+                    </div>
+                    <div class="flex flex-col justify-start">
+                      <p class="text-sm mb-[3px]">Password</p>
+                      <input
+                        type="text"
+                        class="placeholder-[#717182] text-[#717182] text-xs border rounded p-2 w-70 bg-[#f3f3f5]"
+                        placeholder="Enter your password"
+                      />
+                    </div>
+
+                    <div class="flex justify-between w-full mt-3">
+                        <div class="flex justify-center">
+                            <input checked="" type="checkbox" class="accent-gray-900">  
+                            <label class="ml-2 text-sm text-[#717182]">Remember me</label>
+                        </div>  
+                        <a onclick="openModal('resetModal')" class="signup-link link cursor-pointer text-sm"> Forgot Password </a>
+                    </div>
+                    
+                    <a 
+                        href="foodMenuPage.html" 
+                        style="text-decoration:none !important;" 
+                        class="bg-[#111827] text-center text-white rounded w-full p-2 mt-4 cursor-pointer">
+                        Login
+                    </a>
+
+                    <p class="mt-5 text-sm">Don't have an account yet? Sign up <a id="to-register-link" class="text-[#111827] underline cursor-pointer">here</a></p>
+                  </form>
+                </div>
+                <!-- <a href="#" id="to-login-link" class="text-blue-600">Log in</a> -->
+            </div>
+        </div>
+
+        <div id="image-slider" class="absolute top-0 left-0 w-screen h-screen 
+         transition-transform duration-500 ease-in-out z-10 
+         bg-cover bg-center text-white p-10 flex flex-col justify-end"
+         style="background-image: url('images/loginCarousel/7.jpg');">
+    
+            <!--<div id="image-panel-text" class="-w-[60%]">
+                <div id="current-text-content">
+                <h2 class="text-2xl font-bold">Share Your Culinary Creations</h2>
+                <p class="ml-[800px]">Join our community of food lovers...</p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- left side -->    
+    <!-- <div class="w-3/5 h-screen">
+      <img class=" w-full h-full object-cover" src="./images/loginCarousel/2.jpg" alt="Image 2">
+    </div> -->
+    <!-- right side  -->
+    <!-- <div class="w-2/5 -mt-9 flex flex-col items-center justify-center">
+      <div class="h-10 w-10 bg-[#111827] rounded-full shadow-2xl transition duration-500 hover:scale-105">
+        <center>
+          <svg class="flex items-center justify-center self-center h-7 w-7 text-white mt-[5px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+            <rect width="256" height="256" fill="none"/><line x1="96" y1="160" x2="88" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="160" y1="160" x2="168" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="128" y1="160" x2="128" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M173.65,65.12A48,48,0,1,1,184,160H72A48,48,0,1,1,82.35,65.12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M80,80a48,48,0,0,1,96,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M200,157.27V208a8,8,0,0,1-8,8H64a8,8,0,0,1-8-8V157.27" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+          </svg>
+        </center>
+      </div>
+        
+      <p class="mt-4 mb-2">Welcome!</p>
+      <p class="text-[#717182] text-sm">Log in to your RecipeShare account</p>
+      
+      <form class="flex flex-col items-center">
+        <div class="flex flex-col justify-start mt-5 mb-3">
+          <p class="text-sm mb-[3px]">Email</p>
+          <input
+            type="text"
+            class="placeholder-[#717182] text-[#717182] text-xs border rounded p-2 w-70 bg-[#f3f3f5]"
+            placeholder="Enter your email"
+          />
+        </div>
+        <div class="flex flex-col justify-start">
+          <p class="text-sm mb-[3px]">Password</p>
+          <input
+            type="text"
+            class="placeholder-[#717182] text-[#717182] text-xs border rounded p-2 w-70 bg-[#f3f3f5]"
+            placeholder="Enter your password"
+          />
+        </div>
+
+        <div class="flex justify-between w-full mt-2">
+          <input checked="" type="checkbox" class="accent-gray-900">  
+          <a onclick="openModal('resetModal')" class="signup-link link cursor-pointer"> Forgot Pasword </a>
+        </div>
+        
+        <a 
+            href="foodMenuPage.html" 
+            style="text-decoration:none !important;" 
+            class="bg-[#111827] text-center text-white rounded w-full p-2 mt-4 cursor-pointer">
+            Login
+        </a>
+      </form>
+
+    </div> -->
+    
+    <!-- modals -->
+    <!-- STEP 1 forgot password-->
+    <div id="resetModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/50 backdrop-blur-sm transition-opacity duration-300" aria-modal="true" role="dialog">
+        
+        <!-- Modal Content Container -->
+        <div data-modal-content class="bg-white rounded-xl shadow-2xl p-8 w-full max-w-sm m-4 transform transition-transform duration-300 ease-out scale-95 opacity-0">
+            
+            <div class="flex justify-end">
+                 <!-- Close Button -->
+                <button onclick="closeModal('resetModal')" class="text-gray-400 hover:text-gray-600 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Header -->
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900">Forgot Password?</h2>
+                <p class="text-sm text-gray-500 mt-1">Enter your email to receive a reset link.</p>
+            </div>
+
+            <!-- Form -->
+            <form onsubmit="event.preventDefault()">
+                <div class="mb-5">
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required
+                           class="w-full px-4 py-3 border border-gray-200 bg-gray-50 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150">
+                </div>
+                
+                <!-- BUTTON: Triggers the switch to the second modal -->
+                <button type="button" onclick="showNewPasswordModal()" 
+                        class="w-full py-3 bg-gray-900 text-white font-semibold rounded-lg shadow-md hover:bg-gray-800 transition duration-150 focus:outline-none focus:ring-4 focus:ring-gray-300">
+                    Send Reset Link
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- STEP 2 forgot password-->
+    <div id="newPasswordModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/50 backdrop-blur-sm transition-opacity duration-300" aria-modal="true" role="dialog">
+        
+        <!-- Modal Content Container -->
+        <div data-modal-content class="bg-white rounded-xl shadow-2xl p-8 w-full max-w-sm m-4 transform transition-transform duration-300 ease-out scale-95 opacity-0">
+            
+            <div class="flex justify-end">
+                 <!-- Close Button -->
+                <button onclick="closeModal('newPasswordModal')" class="text-gray-400 hover:text-gray-600 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Header -->
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900">Set New Password</h2>
+                <p class="text-sm text-gray-500 mt-1">Enter and confirm your new password below.</p>
+            </div>
+
+            <!-- Form -->
+            <form onsubmit="event.preventDefault()">
+                <div class="mb-5">
+                    <label for="new_password" class="block text-sm font-medium text-gray-700 mb-1">New Password</label>
+                    <input type="password" id="new_password" placeholder="Enter new password" required
+                           class="w-full px-4 py-3 border border-gray-200 bg-gray-50 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150">
+                </div>
+                <div class="mb-5">
+                    <label for="confirm_password" class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                    <input type="password" id="confirm_password" placeholder="Confirm new password" required
+                           class="w-full px-4 py-3 border border-gray-200 bg-gray-50 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150">
+                </div>
+                
+                <!-- BUTTON: Final submission button -->
+                <button type="submit" onclick="closeModal('newPasswordModal')"
+                        class="w-full py-3 bg-gray-900 text-white font-semibold rounded-lg shadow-md hover:bg-gray-800 transition duration-150 focus:outline-none focus:ring-4 focus:ring-gray-300">
+                    Set Password
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ToS -->
+    <div id="terms-modal" 
+     class="hidden fixed inset-0 z-50 bg-gray-900/70 flex items-center justify-center p-4" 
+     aria-modal="true" role="dialog" aria-labelledby="modal-title">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-xl overflow-hidden max-h-[90vh]">
+            
+            <div class="p-6 border-b border-gray-200">
+                <h3 id="modal-title" class="text-xl font-semibold text-gray-900">
+                    Terms of Service
+                </h3>
+                <p class="text-sm text-gray-500 mt-1">Last updated: October 28, 2025</p>
+            </div>
+
+            <div class="p-6 overflow-y-auto max-h-[60vh]">
+                
+                <h4 class="text-lg font-bold mb-2">1. Acceptance of Terms</h4>
+                <p class="text-gray-700 text-sm mb-4">
+                    By accessing and using RecipeShare ("the Service"), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
+                </p>
+
+                <h4 class="text-lg font-bold mt-4 mb-2">2. Use License</h4>
+                <p class="text-gray-700 text-sm">
+                    Permission is granted to temporarily download one copy of the materials (recipes, images, text) on RecipeShare for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
+                </p>
+                <ul class="list-disc ml-6 text-gray-700 text-sm mt-2 space-y-1">
+                    <li>Modify or copy the materials</li>
+                    <li>Use the materials for any commercial purpose</li>
+                    <li>Attempt to decompile or reverse engineer any software contained on RecipeShare</li>
+                    <li>Remove any copyright or other proprietary notations from the materials</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mt-4 mb-2">3. User Content</h4>
+                <p class="text-gray-700 text-sm">
+                    Users may post, upload, and share recipes and related content. By posting content to RecipeShare, you grant us a non-exclusive, worldwide, royalty-free license to use, reproduce, modify, and display such content in connection with the Service.
+                    <br>
+                    You are solely responsible for your content and the consequences of posting or publishing it. You affirm, represent, and warrant that you own or have the necessary permissions to use and authorize us to use all content you post.
+                </p>
+                
+                <h4 class="text-lg font-bold mt-4 mb-2">4. Content Standards</h4>
+                <p class="text-gray-700 text-sm">
+                    All content must comply with the following standards:
+                </p>
+                <ul class="list-disc ml-6 text-gray-700 text-sm mt-2 space-y-1">
+                    <li>Must be accurate and truthful</li>
+                    <li>Must not contain offensive, harmful, or inappropriate material</li>
+                    <li>Must not infringe on any third party's rights</li>
+                    <li>Must not contain spam or promotional content</li>
+                    <li>Must be related to cooking, recipes, or food</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mt-4 mb-2">5. Account Responsibilities</h4>
+                <p class="text-gray-700 text-sm">
+                    You are responsible for maintaining the confidentiality of your account and password. You agree to accept responsibility for all activities that occur under your account. You must notify us immediately of any unauthorized use of your account.
+                </p>
+
+                <h4 class="text-lg font-bold mt-4 mb-2">6. Prohibited Uses</h4>
+                <p class="text-gray-700 text-sm">
+                    You may not use RecipeShare:
+                </p>
+                <ul class="list-disc ml-6 text-gray-700 text-sm mt-2 space-y-1">
+                    <li>In any way that violates any applicable local, national, or international law</li>
+                    <li>To transmit any unsolicited or unauthorized advertising or promotional material</li>
+                    <li>To impersonate or attempt to impersonate another user or person</li>
+                    <li>To engage in any other conduct that restricts or inhibits anyone's use of the Service</li>
+                    <li>To scrape, harvest, or collect user information without consent</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mt-4 mb-2">7. Intellectual Property</h4>
+                <p class="text-gray-700 text-sm">
+                    The Service and its original content (excluding user-generated content), features, and functionality are owned by RecipeShare and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.
+                </p>
+
+                <h4 class="text-lg font-bold mt-4 mb-2">8. Disclaimer</h4>
+                <p class="text-gray-700 text-sm">
+                    The materials on RecipeShare are provided on an 'as is' basis. RecipeShare makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
+                    <br>
+                    RecipeShare does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on its website or otherwise relating to such materials or on any sites linked to this site.
+                </p>
+
+                <h4 class="text-lg font-bold mt-4 mb-2">9. Limitations</h4>
+                <p class="text-gray-700 text-sm">
+                    In no event shall RecipeShare or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on RecipeShare, even if RecipeShare or an authorized representative has been notified orally or in writing of the possibility of such damage.
+                </p>
+
+                <h4 class="text-lg font-bold mt-4 mb-2">10. Recipe Accuracy</h4>
+                <p class="text-gray-700 text-sm">
+                    While we strive to ensure recipe accuracy, RecipeShare is not responsible for the results of following any recipe posted on the platform. Users follow recipes at their own risk and should use common sense and food safety practices.
+                </p>
+
+                <h4 class="text-lg font-bold mt-4 mb-2">11. Modifications</h4>
+                <p class="text-gray-700 text-sm">
+                    RecipeShare may revise these terms of service at any time without notice. By using this website, you are agreeing to be bound by the then current version of these terms of service.
+                </p>
+
+                <h4 class="text-lg font-bold mt-4 mb-2">12. Termination</h4>
+                <p class="text-gray-700 text-sm">
+                    We may terminate or suspend your account and bar access to the Service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever, including without limitation if you breach the Terms.
+                </p>
+
+                <h4 class="text-lg font-bold mt-4 mb-2">13. Governing Law</h4>
+                <p class="text-gray-700 text-sm">
+                    These terms shall be governed and construed in accordance with the laws, without regard to its conflict of law provisions.
+                </p>
+
+                <h4 class="text-lg font-bold mt-4 mb-2">14. Contact Information</h4>
+                <p class="text-gray-700 text-sm">
+                    If you have any questions about these Terms, please contact us at terms@recipeshare.com
+                </p>
+                
+            </div>
+
+            <div class="p-4 border-t border-gray-200 flex justify-end">
+                <button id="close-modal-btn" 
+                        class="px-4 py-2 text-sm font-medium text-white bg-[#111827] rounded-md hover:bg-gray-800 transition duration-150">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PrivPol -->
+    <div id="privacy-modal" 
+     class="hidden fixed inset-0 z-50 bg-gray-900/70 flex items-center justify-center p-4" 
+     aria-modal="true" role="dialog" aria-labelledby="modal-title">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-xl overflow-hidden max-h-[90vh]">
+            
+            <div class="p-6 border-b border-gray-200">
+                <h3 id="modal-title" class="text-xl font-semibold text-gray-900">
+                    Privacy Policy
+                </h3>
+                <p class="text-sm text-gray-500 mt-1">Last updated: October 28, 2025</p>
+            </div>
+
+            <div class="p-6 overflow-y-auto max-h-[60vh]">
+                
+                <h4 class="text-lg font-bold mb-2">1. Introduction</h4>
+                <p class="text-gray-700 text-sm mb-4">
+                    Welcome to RecipeShare ("we," "our," or "us"). We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you about how we look after your personal data when you visit our website and tell you about your privacy rights.
+                </p>
+
+                <h4 class="text-lg font-bold mt-4 mb-2">2. Information We Collect</h4>
+                <p class="text-gray-700 text-sm">
+                    We may collect, use, store and transfer different kinds of personal data about you:
+                </p>
+                <ul class="list-disc ml-6 text-gray-700 text-sm mt-2 space-y-1">
+                    <li><b>Identity Data:</b> first name, last name, username</li>
+                    <li><b>Contact Data:</b> email address</li>
+                    <li><b>Technical Data:</b> IP address, browser type and version, time zone setting, browser plug-in types and versions, operating system and platform</li>
+                    <li><b>Profile Data:</b> your username and password, recipes posted, preferences, feedback and survey responses</li>
+                    <li><b>Usage Data:</b> information about how you use our website and services</li>
+                    <li><b>Content Data:</b> recipes, photos, comments, and ratings you post on the platform</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mt-4 mb-2">3. How We Collect Your Data</h4>
+                <p class="text-gray-700 text-sm">
+                    We use different methods to collect data from and about you including:
+                </p>
+                <ul class="list-disc ml-6 text-gray-700 text-sm mt-2 space-y-1">
+                    <li><b>Direct interactions:</b> You provide data by filling in forms or corresponding with us via email or other means</li>
+                    <li><b>Automated technologies:</b> As you interact with our website, we may automatically collect Technical Data about your equipment and browsing actions</li>
+                    <li><b>Third parties:</b> We may receive data from analytics providers such as Google Analytics</li>
+                </ul>
+                
+                <h4 class="text-lg font-bold mt-4 mb-2">4. How We Use Your Data</h4>
+                <p class="text-gray-700 text-sm">
+                    We will only use your personal data when the law allows us to. Most commonly, we will use your data:
+                </p>
+                <ul class="list-disc ml-6 text-gray-700 text-sm mt-2 space-y-1">
+                    <li>To register you as a new user and manage your account</li>
+                    <li>To enable you to post and share recipes</li>
+                    <li>To manage and respond to your comments, questions, and feedback</li>
+                    <li>To personalize your experience on our platform</li>
+                    <li>To send you updates, newsletters, and marketing communications (with your consent)</li>
+                    <li>To improve our website and services</li>
+                    <li>To monitor and analyze usage and trends</li>
+                    <li>To detect, prevent and address technical issues and security threats</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mt-4 mb-2">5. Data Sharing</h4>
+                <p class="text-gray-700 text-sm">
+                    We may share your personal data with:
+                </p>
+                <ul class="list-disc ml-6 text-gray-700 text-sm mt-2 space-y-1">
+                    <li><b>Other Users:</b> Your profile information and posted recipes are visible to other users of the platform</li>
+                    <li><b>Service Providers:</b> Third-party vendors who provide services on our behalf (hosting, analytics, email delivery)</li>
+                    <li><b>Legal Requirements:</b> When required by law or to protect our rights and safety</li>
+                    <li><b>Business Transfers:</b> In connection with any merger, sale of assets, or acquisition</li>
+                </ul>
+                <p class="text-gray-700 text-sm">
+                    We require all third parties to respect the security of your personal data and to treat it in accordance with the law.
+                </p>
+
+                <h4 class="text-lg font-bold mt-4 mb-2">6. Data Security</h4>
+                <p class="text-gray-700 text-sm">
+                    We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used, accessed in an unauthorized way, altered or disclosed. We limit access to your personal data to those employees, agents, contractors and other third parties who have a business need to know.
+                </p>
+
+                <h4 class="text-lg font-bold mt-4 mb-2">7. Data Retention</h4>
+                <p class="text-gray-700 text-sm">
+                    We will only retain your personal data for as long as necessary to fulfill the purposes we collected it for, including for the purposes of satisfying any legal, accounting, or reporting requirements.
+                    <!-- <br>
+                    When you delete your account, we will delete or anonymize your personal data. However, some content you posted (recipes) may remain on the platform in an anonymized form. -->
+                </p>
+
+                <h4 class="text-lg font-bold mt-4 mb-2">8. Your Legal Rights</h4>
+                <p class="text-gray-700 text-sm">
+                    Under certain circumstances, you have rights under data protection laws in relation to your personal data:
+                </p>
+                <ul class="list-disc ml-6 text-gray-700 text-sm mt-2 space-y-1">
+                    <li><b>Right to access: :</b> Request access to your personal data</li>
+                    <li><b>Right to correction:</b> Request correction of inaccurate data</li>
+                    <li><b>Right to erasure:</b> Request deletion of your personal data</li>
+                    <li><b>Right to restrict processing:</b> Request restriction of processing your data</li>
+                    <li><b>Right to data portability:</b> Request transfer of your data to you or a third party</li>
+                    <li><b>Right to object:</b> Object to processing of your personal data</li>
+                    <li><b>Right to withdraw consent:</b> Withdraw consent at any time</li>
+                </ul>
+
+                <h4 class="text-lg font-bold mt-4 mb-2">9. Cookies</h4>
+                <p class="text-gray-700 text-sm">
+                    We use cookies and similar tracking technologies to track activity on our service and hold certain information. Cookies are files with small amount of data which may include an anonymous unique identifier.
+                    <br>
+                    You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our service.
+                </p>
+
+                <h4 class="text-lg font-bold mt-4 mb-2">10. Third-Party Links</h4>
+                <p class="text-gray-700 text-sm">
+                    Our website may include links to third-party websites, plug-ins and applications. Clicking on those links or enabling those connections may allow third parties to collect or share data about you. We do not control these third-party websites and are not responsible for their privacy practices.
+                </p>
+
+                <h4 class="text-lg font-bold mt-4 mb-2">11. Children's Privacy</h4>
+                <p class="text-gray-700 text-sm">
+                    Our service is not intended for children under the age of 13. We do not knowingly collect personally identifiable information from children under 13. If you become aware that a child has provided us with personal data, please contact us.
+                </p>
+
+                <h4 class="text-lg font-bold mt-4 mb-2">12. International Transfers</h4>
+                <p class="text-gray-700 text-sm">
+                    Your information may be transferred to — and maintained on — computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ.
+                </p>
+
+                <h4 class="text-lg font-bold mt-4 mb-2">13. Changes to This Privacy Policy</h4>
+                <p class="text-gray-700 text-sm">
+                    We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date at the top of this policy.
+                </p>
+                
+                <h4 class="text-lg font-bold mt-4 mb-2">14. Contact Us</h4>
+                <p class="text-gray-700 text-sm">
+                    If you have any questions about these Terms, please contact us at terms@recipeshare.com
+                </p>
+                
+            </div>
+
+            <div class="p-4 border-t border-gray-200 flex justify-end">
+                <button id="close-privModal-btn" 
+                        class="px-4 py-2 text-sm font-medium text-white bg-[#111827] rounded-md hover:bg-gray-800 transition duration-150">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
