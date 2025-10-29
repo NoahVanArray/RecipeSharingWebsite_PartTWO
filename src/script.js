@@ -100,38 +100,54 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // for ToS modal
 document.addEventListener('DOMContentLoaded', function() {
-    // 1. Get references to the elements
-    const termsLink = document.getElementById('terms-of-service-link'); // Assuming your link has this ID
+    const termsLink = document.getElementById('terms-of-service-link');
     const modal = document.getElementById('terms-modal');
+    const modalBody = document.getElementById('modal-content-body'); // New target element
     const closeModalBtn = document.getElementById('close-modal-btn');
+    const termsFilePath = '../modal_contents/ToS.html'; // The path to your separate content file
     
-    // --- IMPORTANT: Ensure your "Terms of Service" link has the ID below ---
-    // If you are using the HTML from image_8bb3f9.jpg, the link is here:
-    // <a id="terms-of-service-link" href="#" class="text-blue-600">Terms of Service</a> 
-    
-    // 2. Function to open the modal
-    function openModal(e) {
-        e.preventDefault(); // Prevents the link from navigating if it has a default action
-        modal.classList.remove('hidden');
-        document.body.classList.add('overflow-hidden'); // Prevents background scrolling
+    // Function to load content and open the modal
+    function loadAndOpenModal(e) {
+        e.preventDefault();
+        
+        // 1. Fetch the content from the separate file
+        fetch(termsFilePath)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                // 2. Inject the fetched HTML content into the modal body
+                modalBody.innerHTML = data;
+                
+                // 3. Open the modal
+                modal.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            })
+            .catch(error => {
+                console.error('Error loading modal content:', error);
+                modalBody.innerHTML = '<p class="text-red-600">Failed to load content. Please try again.</p>';
+                modal.classList.remove('hidden'); // Open anyway to show error
+                document.body.classList.add('overflow-hidden');
+            });
     }
 
-    // 3. Function to close the modal
-    function closeModal() {
+    // Attach Event Listeners (Use the new function)
+    if (termsLink) {
+        termsLink.addEventListener('click', loadAndOpenModal);
+    }
+    closeModalBtn.addEventListener('click', () => {
         modal.classList.add('hidden');
         document.body.classList.remove('overflow-hidden');
-    }
+    });
 
-    // 4. Attach Event Listeners
-    if (termsLink) {
-        termsLink.addEventListener('click', openModal);
-    }
-    closeModalBtn.addEventListener('click', closeModal);
-
-    // Optional: Close modal if user clicks outside of it (on the overlay)
+    // Optional: Close modal if user clicks outside of it
     modal.addEventListener('click', function(e) {
         if (e.target === modal) {
-            closeModal();
+            modal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
         }
     });
 });
@@ -139,22 +155,44 @@ document.addEventListener('DOMContentLoaded', function() {
 // for PrivPol modal
 document.addEventListener('DOMContentLoaded', function() {
     // 1. Get references to the elements
-    const privacyLink = document.getElementById('privacy-policy-link'); // Assuming your link has this ID
+    const privacyLink = document.getElementById('privacy-policy-link');
     const privModal = document.getElementById('privacy-modal');
+    const privModalBody = document.getElementById('priv-modal-content-body'); // Assuming you use this ID for the scrollable body
     const closePrivModalBtn = document.getElementById('close-privModal-btn');
-    
-    // --- IMPORTANT: Ensure your "Terms of Service" link has the ID below ---
-    // If you are using the HTML from image_8bb3f9.jpg, the link is here:
-    // <a id="terms-of-service-link" href="#" class="text-blue-600">Terms of Service</a> 
-    
-    // 2. Function to open the modal
-    function openModal(e) {
-        e.preventDefault(); // Prevents the link from navigating if it has a default action
-        privModal.classList.remove('hidden');
-        document.body.classList.add('overflow-hidden'); // Prevents background scrolling
+    const privacyFilePath = '../modal_contents/PrivPol.html'; // Adjust this path to your file structure!
+
+    // Function to load content and open the modal
+    function loadAndOpenPrivModal(e) {
+        e.preventDefault();
+        
+        // Clear old content and show loading message
+        privModalBody.innerHTML = '<p class="text-gray-500">Loading Privacy Policy...</p>';
+        
+        // 1. Fetch the content from the separate file
+        fetch(privacyFilePath)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                // 2. Inject the fetched HTML content into the modal body
+                privModalBody.innerHTML = data;
+                
+                // 3. Open the modal
+                privModal.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            })
+            .catch(error => {
+                console.error('Error loading Privacy Policy content:', error);
+                privModalBody.innerHTML = '<p class="text-red-600">Failed to load Privacy Policy. Please ensure your local server is running.</p>';
+                privModal.classList.remove('hidden'); // Open anyway to show error
+                document.body.classList.add('overflow-hidden');
+            });
     }
 
-    // 3. Function to close the modal
+    // 3. Function to close the modal (kept the same)
     function closePrivModal() {
         privModal.classList.add('hidden');
         document.body.classList.remove('overflow-hidden');
@@ -162,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 4. Attach Event Listeners
     if (privacyLink) {
-        privacyLink.addEventListener('click', openModal);
+        privacyLink.addEventListener('click', loadAndOpenPrivModal);
     }
     closePrivModalBtn.addEventListener('click', closePrivModal);
 
