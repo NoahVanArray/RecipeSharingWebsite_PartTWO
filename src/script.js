@@ -1,36 +1,36 @@
 // Generic function to open any modal
 function openModal(modalId) {
-            const modal = document.getElementById(modalId);
-            // Query the content element using the data-attribute inside the specific modal
-            const content = modal.querySelector('[data-modal-content]'); 
-            
-            if (modal && content) {
-                modal.classList.remove('hidden');
-                // Force a reflow to ensure transitions run
-                void modal.offsetWidth; 
-                modal.classList.add('opacity-100');
-                content.classList.remove('scale-95', 'opacity-0');
-                content.classList.add('scale-100', 'opacity-100');
-            }
+    const modal = document.getElementById(modalId);
+    const content = modal.querySelector('[data-modal-content]');
+    
+    if (modal && content) {
+        modal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden'); // 👈 ADD THIS HERE
+        // Force a reflow to ensure transitions run
+        void modal.offsetWidth; 
+        modal.classList.add('opacity-100');
+        content.classList.remove('scale-95', 'opacity-0');
+        content.classList.add('scale-100', 'opacity-100');
+    }
 }
 
 // Generic function to close any modal
 function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            // Query the content element using the data-attribute inside the specific modal
-            const content = modal.querySelector('[data-modal-content]');
+    const modal = document.getElementById(modalId);
+    const content = modal.querySelector('[data-modal-content]');
 
-            if (modal && content) {
-                // Start reverse transition
-                modal.classList.remove('opacity-100');
-                content.classList.remove('scale-100', 'opacity-100');
-                content.classList.add('scale-95', 'opacity-0');
+    if (modal && content) {
+        // Start reverse transition
+        modal.classList.remove('opacity-100');
+        content.classList.remove('scale-100', 'opacity-100');
+        content.classList.add('scale-95', 'opacity-0');
 
-                // Hide modal after transition completes (300ms)
-                setTimeout(() => {
-                    modal.classList.add('hidden');
-                }, 300);
-            }
+        // Hide modal after transition completes (300ms)
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden'); // 👈 ADD THIS HERE
+        }, 300);
+    }
 }
 
 // for ToS modal
@@ -146,6 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
 // Function to close the first modal and open the second
 function showNewPasswordModal() {
             closeModal('resetModal'); 
@@ -174,7 +175,6 @@ if (newPasswordModal) { // Check if the element exists on the page
     });
 }
 
-
 // For the Settings Modal
 document.addEventListener('DOMContentLoaded', function() {
     const openSettingsModalBtn = document.getElementById('open-settings-modal-btn');
@@ -184,26 +184,73 @@ document.addEventListener('DOMContentLoaded', function() {
     if (openSettingsModalBtn && settingsModal && closeSettingsModalBtn) {
         // Open the modal
         openSettingsModalBtn.addEventListener('click', function() {
-            settingsModal.classList.remove('hidden');
-            document.body.classList.add('overflow-hidden'); // Prevent scrolling of the background
+            // 🛑 FIX: Use your generic openModal function
+            openModal('settings-modal');
+            document.body.classList.add('overflow-hidden'); // Keep to prevent background scroll
         });
 
         // Close the modal via the close button
         closeSettingsModalBtn.addEventListener('click', function() {
-            settingsModal.classList.add('hidden');
+            // 🛑 FIX: Use your generic closeModal function
+            closeModal('settings-modal');
             document.body.classList.remove('overflow-hidden');
         });
 
         // Close the modal if clicking outside the content (on the overlay)
         settingsModal.addEventListener('click', function(e) {
             if (e.target === settingsModal) {
-                settingsModal.classList.add('hidden');
+                // 🛑 FIX: Use your generic closeModal function
+                closeModal('settings-modal');
                 document.body.classList.remove('overflow-hidden');
             }
         });
     } else {
         console.warn('One or more settings modal elements not found. Check IDs: open-settings-modal-btn, settings-modal, close-settings-modal-btn');
     }
+});
+
+// Functionality for the "Create New Recipe" Modal
+document.addEventListener('DOMContentLoaded', function() {
+    const openBtn = document.getElementById('open-recipe-modal-btn');
+    const modal = document.getElementById('create-recipe-modal');
+    const closeBtnFooter = document.getElementById('close-recipe-modal-btn');
+    const closeBtnX = document.getElementById('close-recipe-modal-x');
+
+    if (!modal) {
+        return; 
+    }
+
+    // 🛑 FIX: Define closeModal using your generic function
+    const closeModalHandler = () => {
+        closeModal('create-recipe-modal');
+        document.body.classList.remove('overflow-hidden');
+    };
+
+    // 1. Open Modal
+    if (openBtn) {
+        openBtn.addEventListener('click', function() {
+            // 🛑 FIX: Use your generic openModal function
+            openModal('create-recipe-modal');
+            document.body.classList.add('overflow-hidden');
+        });
+    }
+
+    // 2. Close Modal (Footer Cancel Button)
+    if (closeBtnFooter) {
+        closeBtnFooter.addEventListener('click', closeModalHandler);
+    }
+    
+    // 3. Close Modal (X Button in Header)
+    if (closeBtnX) {
+        closeBtnX.addEventListener('click', closeModalHandler);
+    }
+
+    // 4. Close Modal when clicking outside the content box
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModalHandler();
+        }
+    });
 });
 
 // slider for the login-registration animation

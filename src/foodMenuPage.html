@@ -31,11 +31,9 @@
             </a>
 
             <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse mr-15">
-                <button type="button" class="text-white bg-[#111827] hover:bg-[#2d3441] font-medium flex justify-center items-center rounded-lg text-sm px-4 py-2 text-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="w-5 h-5 mr-2">
-                        <rect width="256" height="256" fill="none"/>
-                        <line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
-                        <line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                <button id="open-recipe-modal-btn" class="flex items-center bg-[#111827] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-700 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                     </svg>
                     Add Recipe
                 </button>
@@ -233,7 +231,7 @@
     </div>
 
     
-    <!-- i love feet -rex -->
+    <!-- feet -->
     <footer class="bg-white rounded-lg shadow-sm border-gray-200 m-4">
         <div class="w-full  p-4 md:py-8">
             <div class="sm:flex sm:items-center sm:justify-between">
@@ -261,6 +259,7 @@
         </div>
     </footer>
 
+    <!-- ToS modal -->
     <div id="terms-modal" 
         class="hidden fixed inset-0 z-50 bg-gray-900/70 flex items-center justify-center p-4">
     
@@ -277,6 +276,7 @@
         </div>
     </div>
 
+    <!-- privPol modal -->
     <div id="privacy-modal" 
         class="hidden fixed inset-0 z-50 bg-gray-900/70 flex items-center justify-center p-4">
     
@@ -293,89 +293,182 @@
         </div>
     </div>
 
+    <!-- settings modal -->
     <div id="settings-modal" class="hidden fixed inset-0 z-50 bg-gray-900/70 flex items-center justify-center p-4">
-    <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl overflow-hidden max-h-[90vh] flex flex-col">
-        <div class="p-6 border-b border-gray-200">
-            <h3 class="text-2xl font-bold text-gray-900">User Settings</h3>
-            <p class="text-gray-600 text-sm mt-1">Manage your profile information, email, and password.</p>
-        </div>
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-lg overflow-hidden max-h-[90vh] flex flex-col">
+            <div class="p-6 border-b border-gray-200">
+                <h3 class="text-2xl font-bold text-gray-900">User Settings</h3>
+                <p class="text-gray-600 text-sm mt-1">Manage your profile information, email, and password.</p>
+            </div>
 
-        <div data-modal-content class="p-6 overflow-y-auto flex-grow">
-            <div class="flex items-center space-x-4 mb-8">
-                <img class="w-24 h-24 rounded-full object-cover border-2 border-gray-300" src="../icons/PNGs/light/user-light.png" alt="Profile image">
-                <div>
-                    <h4 class="text-lg font-semibold text-gray-900">Profile Picture</h4>
-                    <p class="text-sm text-gray-600 mb-2">Update your profile image.</p>
-                    <button class="px-4 py-2 text-sm font-medium text-white bg-[#111827] rounded-md hover:bg-gray-800 transition duration-150">
-                        Change Image
+            <div data-modal-content class="p-6 overflow-y-auto flex-grow">
+                <div class="flex justify-center items-center space-x-4 mb-8">
+                    <img class="w-24 h-24 rounded-full object-cover border-2 border-gray-300" src="../icons/PNGs/light/user-light.png" alt="Profile image">
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-900">Profile Picture</h4>
+                        <p class="text-sm text-gray-600 mb-2">Update your profile image.</p>
+                        <button class="px-4 py-2 text-sm font-medium text-white bg-[#111827] rounded-md hover:bg-gray-800 transition duration-150">
+                            Change Image
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-8 w-full">
+                    <h4 class="text-lg font-semibold text-gray-900 border-b pb-2 mb-4">Personal Information</h4>
+                    <div class="flex justify-center items-center flex-col gap-4">
+                        <div class="w-full">
+                            <label for="settings-fullname" class="block text-sm font-medium text-gray-700">Full Name</label>
+                            <input placeholder="Enter your full name" type="text" id="settings-firstname" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+                        </div>
+                        <div class="w-full">
+                            <label for="settings-username" class="block text-sm font-medium text-gray-700">Username</label>
+                            <input placeholder="Enter your username" type="text" id="settings-username" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+                        </div>
+                    </div>
+                    <button class="mt-6 px-4 py-2 text-sm font-medium text-white bg-[#111827] rounded-md hover:bg-gray-800 transition duration-150">
+                        Save Personal Info
+                    </button>
+                </div>
+
+                <div class="mb-8">
+                    <h4 class="text-lg font-semibold text-gray-900 border-b pb-2 mb-4">Change Email</h4>
+                    <label for="settings-email" class="block text-sm font-medium text-gray-700">New Email</label>
+                    <input placeholder="Enter your email" type="email" id="settings-email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+                    <button class="mt-4 px-4 py-2 text-sm font-medium text-white bg-[#111827] rounded-md hover:bg-gray-800 transition duration-150">
+                        Update Email
+                    </button>
+                </div>
+
+                <div class="mb-4">
+                    <h4 class="text-lg font-semibold text-gray-900 border-b pb-2 mb-4">Change Password</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="settings-current-password" class="block text-sm font-medium text-gray-700">Current Password</label>
+                            <input placeholder="Enter your current password" type="password" id="settings-current-password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+                        </div>
+                        <div>
+                            <label for="settings-new-password" class="block text-sm font-medium text-gray-700">New Password</label>
+                            <input placeholder="Enter your new password" type="password" id="settings-new-password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="settings-confirm-password" class="block text-sm font-medium text-gray-700">Confirm New Password</label>
+                            <input placeholder="Re-enter your password" type="password" id="settings-confirm-password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+                        </div>
+                    </div>
+                    <button class="mt-6 px-4 py-2 text-sm font-medium text-white bg-[#111827] rounded-md hover:bg-gray-800 transition duration-150">
+                        Update Password
                     </button>
                 </div>
             </div>
 
-            <div class="mb-8">
-                <h4 class="text-lg font-semibold text-gray-900 border-b pb-2 mb-4">Personal Information</h4>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label for="settings-firstname" class="block text-sm font-medium text-gray-700">First Name</label>
-                        <input type="text" id="settings-firstname" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
-                    </div>
-                    <div>
-                        <label for="settings-lastname" class="block text-sm font-medium text-gray-700">Last Name</label>
-                        <input type="text" id="settings-lastname" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
-                    </div>
-                    <div>
-                        <label for="settings-username" class="block text-sm font-medium text-gray-700">Username</label>
-                        <input type="text" id="settings-username" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
-                    </div>
-                    <div>
-                        <label for="settings-phone" class="block text-sm font-medium text-gray-700">Phone Number (Optional)</label>
-                        <input type="tel" id="settings-phone" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
-                    </div>
-                </div>
-                <button class="mt-6 px-4 py-2 text-sm font-medium text-white bg-[#111827] rounded-md hover:bg-gray-800 transition duration-150">
-                    Save Personal Info
-                </button>
+            <div class="p-4 border-t border-gray-200 flex justify-end">
+                <button id="close-settings-modal-btn" 
+                          class="px-4 py-2 text-sm font-medium text-white bg-[#111827] rounded-md hover:bg-gray-800 transition duration-150">
+                      Close
+                  </button>
             </div>
-
-            <div class="mb-8">
-                <h4 class="text-lg font-semibold text-gray-900 border-b pb-2 mb-4">Change Email</h4>
-                <label for="settings-email" class="block text-sm font-medium text-gray-700">New Email</label>
-                <input type="email" id="settings-email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
-                <button class="mt-4 px-4 py-2 text-sm font-medium text-white bg-[#111827] rounded-md hover:bg-gray-800 transition duration-150">
-                    Update Email
-                </button>
-            </div>
-
-            <div class="mb-4">
-                <h4 class="text-lg font-semibold text-gray-900 border-b pb-2 mb-4">Change Password</h4>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label for="settings-current-password" class="block text-sm font-medium text-gray-700">Current Password</label>
-                        <input type="password" id="settings-current-password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
-                    </div>
-                    <div>
-                        <label for="settings-new-password" class="block text-sm font-medium text-gray-700">New Password</label>
-                        <input type="password" id="settings-new-password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
-                    </div>
-                    <div class="md:col-span-2">
-                        <label for="settings-confirm-password" class="block text-sm font-medium text-gray-700">Confirm New Password</label>
-                        <input type="password" id="settings-confirm-password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
-                    </div>
-                </div>
-                <button class="mt-6 px-4 py-2 text-sm font-medium text-white bg-[#111827] rounded-md hover:bg-gray-800 transition duration-150">
-                    Update Password
-                </button>
-            </div>
-        </div>
-
-        <div class="p-4 border-t border-gray-200 flex justify-end">
-            <button id="close-settings-modal-btn" class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition duration-150">
-                Close
-            </button>
         </div>
     </div>
 
+    <!-- createRecipe modal -->
+    <div id="create-recipe-modal" class="hidden fixed inset-0 z-50 bg-gray-900/70 flex items-center justify-center p-4">
     
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-2xl overflow-hidden max-h-[95vh] flex flex-col">
+            
+            <div class="px-6 pt-6 pb-4 flex justify-between items-center border-b border-gray-100">
+                <h3 class="text-xl font-semibold text-gray-900">Create New Recipe</h3>
+                <button id="close-recipe-modal-x" class="text-gray-400 hover:text-gray-700 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <div data-modal-content class="p-6 space-y-6 overflow-y-auto flex-grow">
+                
+                <div>
+                    <label for="recipe-title" class="block text-sm font-medium text-gray-700">Recipe Title</label>
+                    <input type="text" id="recipe-title" placeholder="e.g., Chocolate Chip Cookies" class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-3 placeholder-gray-400 focus:border-[#111827]">
+                </div>
+                
+                <div>
+                    <label for="recipe-description" class="block text-sm font-medium text-gray-700">Description</label>
+                    <textarea id="recipe-description" rows="3" placeholder="Brief description of your recipe" class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-3 placeholder-gray-400 focus:border-[#111827] resize-none"></textarea>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="recipe-category" class="block text-sm font-medium text-gray-700">Category</label>
+                        <input type="text" id="recipe-category" placeholder="Breakfast" class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-3 placeholder-gray-400 focus:border-[#111827]">
+                    </div>
+                    <div>
+                        <label for="recipe-servings" class="block text-sm font-medium text-gray-700">Servings</label>
+                        <div class="relative mt-1">
+                            <input type="number" id="recipe-servings" placeholder="4" class="block w-full border border-gray-300 rounded-lg shadow-sm p-3 placeholder-gray-400 pr-10 focus:border-[#111827]">
+                            <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="recipe-prep-time" class="block text-sm font-medium text-gray-700">Prep Time</label>
+                        <input type="text" id="recipe-prep-time" placeholder="e.g., 15 mins" class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-3 placeholder-gray-400 focus:border-[#111827]">
+                    </div>
+                    <div>
+                        <label for="recipe-cook-time" class="block text-sm font-medium text-gray-700">Cook Time</label>
+                        <input type="text" id="recipe-cook-time" placeholder="e.g., 30 mins" class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-3 placeholder-gray-400 focus:border-[#111827]">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="recipe-image-url" class="block text-sm font-medium text-gray-700">Image URL</label>
+                    <input type="url" id="recipe-image-url" placeholder="https://example.com/image.jpg" class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-3 placeholder-gray-400 focus:border-[#111827]">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 flex justify-between items-center">
+                        Ingredients
+                        <button class="flex items-center text-[#111827] hover:text-[#29354d] transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                            </svg>
+                            Add
+                        </button>
+                    </label>
+                    <input type="text" placeholder="Ingredient 1" class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-3 placeholder-gray-400 focus:border-[#111827]">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 flex justify-between items-center">
+                        Instructions
+                        <button class="flex items-center text-[#111827] hover:text-[#29354d] transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                            </svg>
+                            Add
+                        </button>
+                    </label>
+                    <textarea rows="3" placeholder="Step 1" class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-3 placeholder-gray-400 focus:border-[#111827] resize-none"></textarea>
+                </div>
+
+            </div>
+
+            <div class="p-4 border-t border-gray-100 flex justify-end space-x-3">
+                <button id="close-recipe-modal-btn" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-150">
+                    Cancel
+                </button>
+                <button class="px-4 py-2 text-sm font-medium text-white bg-[#111827] rounded-lg hover:bg-[#29354d] transition duration-150">
+                    Create Recipe
+                </button>
+            </div>
+        </div>
+    </div>
+
 </div>
 
     <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
