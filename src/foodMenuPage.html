@@ -16,91 +16,371 @@
   </head>
   
 
-  <body class="w-full">
+  <body class="w-full flex flex-col min-h-screen">
         
 
-    <nav class="bg-white border-gray-200 ">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap ">Flowbite</span>
+    <nav class="bg-white border-b-1 border-[#111827]/25">
+        <div class="w-full flex flex-wrap items-center justify-between mx-auto p-4">
+            <a class="flex items-center justify-center space-x-3 rtl:space-x-reverse cursor-default">
+                    <center>
+                      <svg class="flex items-center justify-center self-center h-7 w-7 text-[#111827] ml-14 -mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+                        <rect width="256" height="256" fill="none"/><line x1="96" y1="160" x2="88" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="160" y1="160" x2="168" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="128" y1="160" x2="128" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M173.65,65.12A48,48,0,1,1,184,160H72A48,48,0,1,1,82.35,65.12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M80,80a48,48,0,0,1,96,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M200,157.27V208a8,8,0,0,1-8,8H64a8,8,0,0,1-8-8V157.27" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                      </svg>
+                    </center>
+                <span class="self-center text-2xl font-semibold no-underline whitespace-nowrap ">RecipeShare</span>
             </a>
 
-            <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2 text-center">Add Recipe</button>
-                <button type="button" class="ml-9 flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 " id="user-menu-button" aria-expanded="false"      data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
-                    <span class="sr-only">Open user menu</span>
-                    <img class="w-8 h-8 rounded-full text-xs" src="/docs/images/people/profile-picture-3.jpg" alt="userImg">
+            <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse mr-15">
+                <button type="button" class="text-white bg-[#111827] hover:bg-[#2d3441] font-medium flex justify-center items-center rounded-lg text-sm px-4 py-2 text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="w-5 h-5 mr-2">
+                        <rect width="256" height="256" fill="none"/>
+                        <line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                        <line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                    </svg>
+                    Add Recipe
                 </button>
+                
+                <button type="button" class="ml-7 flex text-sm bg-[white] rounded-full md:me-0 ring-2 focus:[#111827]] " id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+
+                    <img class="user-pfp w-8 h-8 rounded-full text-xs object-cover " src="..\icons\PNGs\light\user-light.png" alt="userImg">
+
+                </button>
+                
                 <!-- Dropdown menu -->
                 <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow-sm " id="user-dropdown">
                     <div class="px-4 py-3">
-                        <span class="block text-sm text-gray-900 ">Bonnie Green</span>
-                        <span class="block text-sm  text-gray-500 truncate ">name@flowbite.com</span>
+                        <span class="block text-sm text-gray-900 ">Firstname LastName</span>
+                        <span class="block text-sm  text-gray-500 truncate ">name@email.com</span>
                     </div>
                     <ul class="py-2" aria-labelledby="user-menu-button">
                         <li>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Dashboard</a>
+                            <p id="open-settings-modal-btn" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Settings</p>
                         </li>
                         <li>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Settings</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Earnings</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Sign out</a>
+                            <a href="login.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Sign out</a>
                         </li>
                     </ul>
                 </div>
-                <button data-collapse-toggle="navbar-user" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 " aria-controls="navbar-user" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-                    </svg>
-              </button>
             
             </div>
         </div>
     </nav>
 
+    <!-- main body -->
+    <div class="flex-grow mb-20">
+        <!-- the text, searchbar, and buttons -->
+        <div class="">
+            <!-- above stuffs -->
+            <div class="ml-20">
+                <h2 class="text-xl mt-11 mb-1">Discover Recipes</h2>
+                <p class="text-[#717182] text-sm mb-4">Explore delicious recipes shared by our community</p>
 
-  
+                <div class="absolute top-9 left-30 flex items-center ps-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-500 absolute top-39 -left-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                    </svg>
+                </div >
+                <div class="flex-wrap justify-between items-center">
+                    <input type="search" id="default-search" class="block w-150 p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 " placeholder="Search recipes by name..." required />
+                    <button type="submit" class="text-white bg-[#111827] hover:bg-[#2d3441] absolute left-150 top-[184.7px] font-medium rounded-lg text-sm px-4 py-[5px]">Search</button>
+                </div>
+                <!-- cateogry buttons -->
+                <div id="button-group" class="mt-5">
+                    <button aria-pressed="false" onclick="handleSelection(this)" class=" bg-white text-[#111827] ring-1 ring-[#d3d7dd] hover:bg-gray-200 aria-pressed:text-white aria-pressed:bg-[#111827] aria-pressed:outline-none font-medium rounded-lg text-sm px-4 py-[5px]"
+                    >All</button>
+                    <button aria-pressed="false" onclick="handleSelection(this)" class=" bg-white text-[#111827] ring-1 ring-[#d3d7dd] hover:bg-gray-200 aria-pressed:text-white aria-pressed:bg-[#111827] aria-pressed:outline-none font-medium rounded-lg text-sm px-4 py-[5px]"
+                    >Breakfast</button>
+                    <button aria-pressed="false" onclick="handleSelection(this)" class=" bg-white text-[#111827] ring-1 ring-[#d3d7dd] hover:bg-gray-200 aria-pressed:text-white aria-pressed:bg-[#111827] aria-pressed:outline-none font-medium rounded-lg text-sm px-4 py-[5px]"
+                    >Lunch</button>
+                    <button aria-pressed="false" onclick="handleSelection(this)" class=" bg-white text-[#111827] ring-1 ring-[#d3d7dd] hover:bg-gray-200 aria-pressed:text-white aria-pressed:bg-[#111827] aria-pressed:outline-none font-medium rounded-lg text-sm px-4 py-[5px]"
+                    >Dinner</button>
+                    <button aria-pressed="false" onclick="handleSelection(this)" class=" bg-white text-[#111827] ring-1 ring-[#d3d7dd] hover:bg-gray-200 aria-pressed:text-white aria-pressed:bg-[#111827] aria-pressed:outline-none font-medium rounded-lg text-sm px-4 py-[5px]"
+                    >Dessert</button>
+                    <button aria-pressed="false" onclick="handleSelection(this)" class=" bg-white text-[#111827] ring-1 ring-[#d3d7dd] hover:bg-gray-200 aria-pressed:text-white aria-pressed:bg-[#111827] aria-pressed:outline-none font-medium rounded-lg text-sm px-4 py-[5px]"
+                    >Snack</button>
+                    <button aria-pressed="false" onclick="handleSelection(this)" class=" bg-white text-[#111827] ring-1 ring-[#d3d7dd] hover:bg-gray-200 aria-pressed:text-white aria-pressed:bg-[#111827] aria-pressed:outline-none font-medium rounded-lg text-sm px-4 py-[5px]"
+                    >Appetizer</button>
+                </div>
+            </div>
+
+            <!-- card container -->
+            <div class="flex flex-wrap gap-15 justify-center items-center mt-10 m-9">
+                
+                <!-- food card -->
+                <div class="w-[400px] h-xs bg-white border border-gray-200 rounded-lg shadow-lg ">
+                    <a href="#">
+                        <img class="rounded-t-lg object-cover h-70 w-full" src="../images/loginCarousel/3.jpg" alt="" />
+                    </a>
+                    <div class="p-5">
+                        <a href="#">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Pansit Bato</h5>
+                        </a>
+                        <p class="mb-3 font-normal line-clamp-3 text-[#717182]">A Filipino noodle dish from the Bicol region, named after its town of origin in Camarines Sur. Its name, which means "rock noodles," comes from the traditional practice of sun-drying the noodles over stones, which gives them a firm, thick texture and a slightly smoky flavor.</p>
+                        
+                        <!-- for the food info -->
+                        <div class="flex items-center justify-start">
+                            <!-- time -->
+                            <svg class="text-[#717182] w-5 h-5 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="128 72 128 128 184 128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                            <p class="text-[#717182] mr-4">10 mins</p>
+
+                            <!-- serving -->
+                            <svg class="text-[#717182] w-5 h-5 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="84" cy="108" r="52" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M10.23,200a88,88,0,0,1,147.54,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M172,160a87.93,87.93,0,0,1,73.77,40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M152.69,59.7A52,52,0,1,1,172,160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                            <p class="text-[#717182]">4</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- food card -->
+                <div class="w-[400px] h-xs bg-white border border-gray-200 rounded-lg shadow-lg ">
+                    <a href="#">
+                        <img class="rounded-t-lg object-cover h-70 w-full" src="../images/loginCarousel/3.jpg" alt="" />
+                    </a>
+                    <div class="p-5">
+                        <a href="#">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Pansit Bato</h5>
+                        </a>
+                        <p class="mb-3 font-normal line-clamp-3 text-[#717182]">A Filipino noodle dish from the Bicol region, named after its town of origin in Camarines Sur. Its name, which means "rock noodles," comes from the traditional practice of sun-drying the noodles over stones, which gives them a firm, thick texture and a slightly smoky flavor.</p>
+                        
+                        <!-- for the food info -->
+                        <div class="flex items-center justify-start">
+                            <!-- time -->
+                            <svg class="text-[#717182] w-5 h-5 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="128 72 128 128 184 128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                            <p class="text-[#717182] mr-4">10 mins</p>
+
+                            <!-- serving -->
+                            <svg class="text-[#717182] w-5 h-5 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="84" cy="108" r="52" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M10.23,200a88,88,0,0,1,147.54,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M172,160a87.93,87.93,0,0,1,73.77,40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M152.69,59.7A52,52,0,1,1,172,160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                            <p class="text-[#717182]">4</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- food card -->
+                <div class="w-[400px] h-xs bg-white border border-gray-200 rounded-lg shadow-lg ">
+                    <a href="#">
+                        <img class="rounded-t-lg object-cover h-70 w-full" src="../images/loginCarousel/3.jpg" alt="" />
+                    </a>
+                    <div class="p-5">
+                        <a href="#">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Pansit Bato</h5>
+                        </a>
+                        <p class="mb-3 font-normal line-clamp-3 text-[#717182]">A Filipino noodle dish from the Bicol region, named after its town of origin in Camarines Sur. Its name, which means "rock noodles," comes from the traditional practice of sun-drying the noodles over stones, which gives them a firm, thick texture and a slightly smoky flavor.</p>
+                        
+                        <!-- for the food info -->
+                        <div class="flex items-center justify-start">
+                            <!-- time -->
+                            <svg class="text-[#717182] w-5 h-5 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="128 72 128 128 184 128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                            <p class="text-[#717182] mr-4">10 mins</p>
+
+                            <!-- serving -->
+                            <svg class="text-[#717182] w-5 h-5 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="84" cy="108" r="52" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M10.23,200a88,88,0,0,1,147.54,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M172,160a87.93,87.93,0,0,1,73.77,40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M152.69,59.7A52,52,0,1,1,172,160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                            <p class="text-[#717182]">4</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- food card -->
+                <div class="w-[400px] h-xs bg-white border border-gray-200 rounded-lg shadow-lg ">
+                    <a href="#">
+                        <img class="rounded-t-lg object-cover h-70 w-full" src="../images/loginCarousel/3.jpg" alt="" />
+                    </a>
+                    <div class="p-5">
+                        <a href="#">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Pansit Bato</h5>
+                        </a>
+                        <p class="mb-3 font-normal line-clamp-3 text-[#717182]">A Filipino noodle dish from the Bicol region, named after its town of origin in Camarines Sur. Its name, which means "rock noodles," comes from the traditional practice of sun-drying the noodles over stones, which gives them a firm, thick texture and a slightly smoky flavor.</p>
+                        
+                        <!-- for the food info -->
+                        <div class="flex items-center justify-start">
+                            <!-- time -->
+                            <svg class="text-[#717182] w-5 h-5 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="128 72 128 128 184 128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                            <p class="text-[#717182] mr-4">10 mins</p>
+
+                            <!-- serving -->
+                            <svg class="text-[#717182] w-5 h-5 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="84" cy="108" r="52" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M10.23,200a88,88,0,0,1,147.54,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M172,160a87.93,87.93,0,0,1,73.77,40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M152.69,59.7A52,52,0,1,1,172,160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                            <p class="text-[#717182]">4</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- food card -->
+                <div class="w-[400px] h-xs bg-white border border-gray-200 rounded-lg shadow-lg ">
+                    <a href="#">
+                        <img class="rounded-t-lg object-cover h-70 w-full" src="../images/loginCarousel/3.jpg" alt="" />
+                    </a>
+                    <div class="p-5">
+                        <a href="#">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Pansit Bato</h5>
+                        </a>
+                        <p class="mb-3 font-normal line-clamp-3 text-[#717182]">A Filipino noodle dish from the Bicol region, named after its town of origin in Camarines Sur. Its name, which means "rock noodles," comes from the traditional practice of sun-drying the noodles over stones, which gives them a firm, thick texture and a slightly smoky flavor.</p>
+                        
+                        <!-- for the food info -->
+                        <div class="flex items-center justify-start">
+                            <!-- time -->
+                            <svg class="text-[#717182] w-5 h-5 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="128 72 128 128 184 128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                            <p class="text-[#717182] mr-4">10 mins</p>
+
+                            <!-- serving -->
+                            <svg class="text-[#717182] w-5 h-5 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="84" cy="108" r="52" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M10.23,200a88,88,0,0,1,147.54,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M172,160a87.93,87.93,0,0,1,73.77,40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M152.69,59.7A52,52,0,1,1,172,160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
+                            <p class="text-[#717182]">4</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
 
     
-
+    <!-- i love feet -rex -->
     <footer class="bg-white rounded-lg shadow-sm border-gray-200 m-4">
         <div class="w-full  p-4 md:py-8">
             <div class="sm:flex sm:items-center sm:justify-between">
-                <a href="#" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
-                    <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap ">RecipeShare</span>
+                <a class="flex items-center justify-center space-x-3 rtl:space-x-reverse cursor-default">
+                    <center>
+                        <svg class="flex items-center justify-center self-center h-7 w-7 text-[#111827] ml-3 -mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+                          <rect width="256" height="256" fill="none"/><line x1="96" y1="160" x2="88" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="160" y1="160" x2="168" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="128" y1="160" x2="128" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M173.65,65.12A48,48,0,1,1,184,160H72A48,48,0,1,1,82.35,65.12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M80,80a48,48,0,0,1,96,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M200,157.27V208a8,8,0,0,1-8,8H64a8,8,0,0,1-8-8V157.27" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                        </svg>
+                    </center>
+                    <span class="self-center text-2xl font-semibold no-underline whitespace-nowrap ">RecipeShare</span>
                 </a>
                 <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0">
                     <li>
-                        <a href="#" class="hover:underline me-4 md:me-6">Terms and Conditions</a>
+                        <span class="mr-6">Contact: recipeshare@gmail.com</span>
                     </li>
                     <li>
-                        <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+                        <label class="mr-3"><a class="text-[#111827] cursor-pointer" id="terms-of-service-link">Terms of Service</a></label>  
                     </li>
-                    <li>
-                        <a href="#" class="hover:underline">Contact</a>
+                    <li><label class="mr-2"><a class="text-[#111827] cursor-pointer" id="privacy-policy-link">Privacy Policy</a></label>
                     </li>
                 </ul>
             </div>
             <hr class="my-6 border-gray-200 sm:mx-auto-700 lg:my-8" />
-            <span class="block text-sm text-gray-500 sm:text-center">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.</span>
+            <p class="block text-sm text-gray-500 sm:text-center">© 2025 RecipeShare. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <div id="terms-modal" 
+        class="hidden fixed inset-0 z-50 bg-gray-900/70 flex items-center justify-center p-4">
+    
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-lg overflow-hidden max-h-[90vh]">
+            <div id="modal-content-body" class="p-6 pb-0 border-b border-gray-200"></div>
 
+            
+            <div class="p-4 border-t border-gray-200 flex justify-end">
+              <button id="close-modal-btn" 
+                      class="px-4 py-2 text-sm font-medium text-white bg-[#111827] rounded-md hover:bg-gray-800 transition duration-150">
+                  Close
+              </button>
+          </div>
+        </div>
+    </div>
 
+    <div id="privacy-modal" 
+        class="hidden fixed inset-0 z-50 bg-gray-900/70 flex items-center justify-center p-4">
+    
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-lg overflow-hidden max-h-[90vh]">
+            <div id="priv-modal-content-body" class="p-6 pb-0 border-b border-gray-200"></div>
 
+            
+            <div class="p-4 border-t border-gray-200 flex justify-end">
+              <button id="close-privModal-btn" 
+                      class="px-4 py-2 text-sm font-medium text-white bg-[#111827] rounded-md hover:bg-gray-800 transition duration-150">
+                  Close
+              </button>
+            </div>
+        </div>
+    </div>
 
+    <div id="settings-modal" class="hidden fixed inset-0 z-50 bg-gray-900/70 flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl overflow-hidden max-h-[90vh] flex flex-col">
+        <div class="p-6 border-b border-gray-200">
+            <h3 class="text-2xl font-bold text-gray-900">User Settings</h3>
+            <p class="text-gray-600 text-sm mt-1">Manage your profile information, email, and password.</p>
+        </div>
+
+        <div data-modal-content class="p-6 overflow-y-auto flex-grow">
+            <div class="flex items-center space-x-4 mb-8">
+                <img class="w-24 h-24 rounded-full object-cover border-2 border-gray-300" src="../icons/PNGs/light/user-light.png" alt="Profile image">
+                <div>
+                    <h4 class="text-lg font-semibold text-gray-900">Profile Picture</h4>
+                    <p class="text-sm text-gray-600 mb-2">Update your profile image.</p>
+                    <button class="px-4 py-2 text-sm font-medium text-white bg-[#111827] rounded-md hover:bg-gray-800 transition duration-150">
+                        Change Image
+                    </button>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <h4 class="text-lg font-semibold text-gray-900 border-b pb-2 mb-4">Personal Information</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="settings-firstname" class="block text-sm font-medium text-gray-700">First Name</label>
+                        <input type="text" id="settings-firstname" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+                    </div>
+                    <div>
+                        <label for="settings-lastname" class="block text-sm font-medium text-gray-700">Last Name</label>
+                        <input type="text" id="settings-lastname" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+                    </div>
+                    <div>
+                        <label for="settings-username" class="block text-sm font-medium text-gray-700">Username</label>
+                        <input type="text" id="settings-username" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+                    </div>
+                    <div>
+                        <label for="settings-phone" class="block text-sm font-medium text-gray-700">Phone Number (Optional)</label>
+                        <input type="tel" id="settings-phone" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+                    </div>
+                </div>
+                <button class="mt-6 px-4 py-2 text-sm font-medium text-white bg-[#111827] rounded-md hover:bg-gray-800 transition duration-150">
+                    Save Personal Info
+                </button>
+            </div>
+
+            <div class="mb-8">
+                <h4 class="text-lg font-semibold text-gray-900 border-b pb-2 mb-4">Change Email</h4>
+                <label for="settings-email" class="block text-sm font-medium text-gray-700">New Email</label>
+                <input type="email" id="settings-email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+                <button class="mt-4 px-4 py-2 text-sm font-medium text-white bg-[#111827] rounded-md hover:bg-gray-800 transition duration-150">
+                    Update Email
+                </button>
+            </div>
+
+            <div class="mb-4">
+                <h4 class="text-lg font-semibold text-gray-900 border-b pb-2 mb-4">Change Password</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="settings-current-password" class="block text-sm font-medium text-gray-700">Current Password</label>
+                        <input type="password" id="settings-current-password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+                    </div>
+                    <div>
+                        <label for="settings-new-password" class="block text-sm font-medium text-gray-700">New Password</label>
+                        <input type="password" id="settings-new-password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="settings-confirm-password" class="block text-sm font-medium text-gray-700">Confirm New Password</label>
+                        <input type="password" id="settings-confirm-password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+                    </div>
+                </div>
+                <button class="mt-6 px-4 py-2 text-sm font-medium text-white bg-[#111827] rounded-md hover:bg-gray-800 transition duration-150">
+                    Update Password
+                </button>
+            </div>
+        </div>
+
+        <div class="p-4 border-t border-gray-200 flex justify-end">
+            <button id="close-settings-modal-btn" class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition duration-150">
+                Close
+            </button>
+        </div>
+    </div>
+
+    
+</div>
 
     <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
     <script src="script.js"></script>
-
+    <!-- <script>updateAvatar(userData.profile_image_url);</script> -->
 
 </body>
 

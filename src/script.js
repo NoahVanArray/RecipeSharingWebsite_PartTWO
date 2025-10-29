@@ -33,71 +33,6 @@ function closeModal(modalId) {
             }
 }
 
-// Function to close the first modal and open the second
-function showNewPasswordModal() {
-            closeModal('resetModal'); 
-            // Small delay (150ms) to allow the first modal's closing animation to look smooth
-            setTimeout(() => {
-                openModal('newPasswordModal'); 
-            }, 150);
-}
-
-// Close modal when clicking outside the content box
-document.getElementById('resetModal').addEventListener('click', function(e) {
-            if (e.target.id === 'resetModal') {
-                closeModal('resetModal');
-            }
-});
-document.getElementById('newPasswordModal').addEventListener('click', function(e) {
-            if (e.target.id === 'newPasswordModal') {
-                closeModal('newPasswordModal');
-            }
-});
-
-
-// slider for the login-registration animation
-document.addEventListener('DOMContentLoaded', function() {
-    const slider = document.getElementById('image-slider');
-    const imagePanelText = document.getElementById('image-panel-text');
-    const currentTextContent = document.getElementById('current-text-content');
-    
-    // // Define the content for each state
-    // const loginHTML = `
-    //     <h2 class="text-2xl font-bold">Share Your Culinary Creations</h2>
-    //     <p>Join our community of food lovers...</p>
-    // `;
-    // const registerHTML = `
-    //     <h2 class="text-2xl font-bold">Start Your Culinary Journey</h2>
-    //     <p>Create an account and start sharing...</p>
-    // `;
-    
-    // Utility for changing text and position
-    function updateImagePanel(translateXValue, justifyClass) {
-        slider.style.transform = `translateX(${translateXValue})`;
-        // currentTextContent.innerHTML = textHTML;
-        
-        // Remove previous justification classes and add the new one
-        slider.classList.remove('justify-start', 'justify-end');
-        slider.classList.add(justifyClass);
-    }
-
-    // --- Initial State: Login is displayed (Image on the right) ---
-    // Image slides RIGHT by 40%. The content must align to the END (right).
-    updateImagePanel('-40%', 'justify-end');
-
-    document.getElementById('to-login-link').addEventListener('click', function(e) {
-        e.preventDefault();
-        // Image slides LEFT by 60%. The content must align to the START (left).
-        updateImagePanel('-40%', 'justify-start');
-    });
-
-    document.getElementById('to-register-link').addEventListener('click', function(e) {
-        e.preventDefault();
-        // Image slides RIGHT by 40%. The content must align to the END (right).
-        updateImagePanel('40%', 'justify-end');
-    });
-});
-
 // for ToS modal
 document.addEventListener('DOMContentLoaded', function() {
     const termsLink = document.getElementById('terms-of-service-link');
@@ -211,3 +146,149 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+// Function to close the first modal and open the second
+function showNewPasswordModal() {
+            closeModal('resetModal'); 
+            // Small delay (150ms) to allow the first modal's closing animation to look smooth
+            setTimeout(() => {
+                openModal('newPasswordModal'); 
+            }, 150);
+}
+
+// Close modal when clicking outside the content box
+const resetModal = document.getElementById('resetModal');
+if (resetModal) { // Check if the element exists on the page
+    resetModal.addEventListener('click', function(e) {
+        if (e.target.id === 'resetModal') {
+            closeModal('resetModal');
+        }
+    });
+}
+
+const newPasswordModal = document.getElementById('newPasswordModal');
+if (newPasswordModal) { // Check if the element exists on the page
+    newPasswordModal.addEventListener('click', function(e) {
+        if (e.target.id === 'newPasswordModal') {
+            closeModal('newPasswordModal');
+        }
+    });
+}
+
+
+// For the Settings Modal
+document.addEventListener('DOMContentLoaded', function() {
+    const openSettingsModalBtn = document.getElementById('open-settings-modal-btn');
+    const settingsModal = document.getElementById('settings-modal');
+    const closeSettingsModalBtn = document.getElementById('close-settings-modal-btn');
+    
+    if (openSettingsModalBtn && settingsModal && closeSettingsModalBtn) {
+        // Open the modal
+        openSettingsModalBtn.addEventListener('click', function() {
+            settingsModal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden'); // Prevent scrolling of the background
+        });
+
+        // Close the modal via the close button
+        closeSettingsModalBtn.addEventListener('click', function() {
+            settingsModal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        });
+
+        // Close the modal if clicking outside the content (on the overlay)
+        settingsModal.addEventListener('click', function(e) {
+            if (e.target === settingsModal) {
+                settingsModal.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        });
+    } else {
+        console.warn('One or more settings modal elements not found. Check IDs: open-settings-modal-btn, settings-modal, close-settings-modal-btn');
+    }
+});
+
+// slider for the login-registration animation
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.getElementById('image-slider');
+    const imagePanelText = document.getElementById('image-panel-text');
+    const currentTextContent = document.getElementById('current-text-content');
+    
+    // 🛑 NEW CHECK: Exit the function safely if the main slider element is missing
+    if (!slider) {
+        return; 
+    }
+    
+    // Utility for changing text and position
+    function updateImagePanel(translateXValue, justifyClass) {
+        // This is the line that was crashing when 'slider' was null:
+        slider.style.transform = `translateX(${translateXValue})`; 
+        // currentTextContent.innerHTML = textHTML;
+        
+        // Remove previous justification classes and add the new one
+        slider.classList.remove('justify-start', 'justify-end');
+        slider.classList.add(justifyClass);
+    }
+
+    // --- Initial State: Login is displayed (Image on the right) ---
+    // Image slides RIGHT by 40%. The content must align to the END (right).
+    updateImagePanel('-40%', 'justify-end');
+
+    // Add checks for 'to-login-link' and 'to-register-link' as well, 
+    // since they might also be missing on other pages.
+    const loginLink = document.getElementById('to-login-link');
+    if (loginLink) {
+        loginLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Image slides LEFT by 60%. The content must align to the START (left).
+            updateImagePanel('-40%', 'justify-start');
+        });
+    }
+
+    const registerLink = document.getElementById('to-register-link');
+    if (registerLink) {
+        registerLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Image slides RIGHT by 40%. The content must align to the END (right).
+            updateImagePanel('40%', 'justify-end');
+        });
+    }
+});
+
+// update of avatar display, shows svg as default if user still hasn't changed their profile image
+function updateAvatar(profileUrl) {
+    const svgIcon = document.getElementById('avatar-svg');
+    const userImg = document.getElementByClassName('user-pfp');
+
+    if (profileUrl && profileUrl !== 'user.svg') {
+        // Show the image
+        userImg.src = profileUrl;
+        userImg.classList.remove('hidden'); 
+        svgIcon.classList.add('hidden');
+    } else {
+        // Show the SVG fallback
+        userImg.classList.add('hidden');
+        svgIcon.classList.remove('hidden');
+    }
+}
+
+// Initial call on page load:
+// updateAvatar(userData.profile_image_url);
+
+// for handling of clicked button group on mainFoodPage
+function handleSelection(clickedButton) {
+    const parent = clickedButton.parentElement;
+    
+    // 1. Deselect All Siblings (The "Normal" State)
+    // Loop through all children of the parent container
+    const buttons = parent.querySelectorAll('button');
+    buttons.forEach(button => {
+        // Reset every button's state to unpressed
+        button.setAttribute('aria-pressed', 'false');
+    });
+
+    // 2. Select the Clicked Button
+    // Set the state of the clicked button to pressed
+    clickedButton.setAttribute('aria-pressed', 'true');
+    
+    // Optional: Add logic here to perform an action based on the selected button
+    // console.log('Selected:', clickedButton.textContent);
+}
