@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "watch": "npx @tailwindcss/cli -i ./input.css -o ./css/style.css --watch",
-    "build": "npx @tailwindcss/cli -i ./input.css -o ./css/style.css"
+    "watch": "npx @tailwindcss/cli -i ./src/input.css -o ./css/style.css --watch",
+    "build": "npx @tailwindcss/cli -i ./src/input.css -o ./css/style.css"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.0.12",
